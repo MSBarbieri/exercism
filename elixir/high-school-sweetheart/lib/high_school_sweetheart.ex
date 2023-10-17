@@ -11,7 +11,8 @@ defmodule HighSchoolSweetheart do
 
   def initials(full_name) do
     # Please implement the initials/1 function
-    full_name |> String.upcase() |> String.split() |> Enum.map(fn x -> initial(x) end) |> concat
+    [f, s] = full_name |> String.split()
+    "#{initial(f)} #{initial(s)}"
   end
 
   def concat([first, last]) do
