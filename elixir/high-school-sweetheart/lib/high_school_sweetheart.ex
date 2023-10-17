@@ -6,7 +6,7 @@ defmodule HighSchoolSweetheart do
 
   def initial(name) do
     # Please implement the initial/1 function
-    (name |> first_letter |> String.upcase()) <> "."
+    name |> first_letter |> String.upcase() |> Kernel.<>(".")
   end
 
   def initials(full_name) do
@@ -19,32 +19,16 @@ defmodule HighSchoolSweetheart do
   end
 
   def pair(full_name1, full_name2) do
-    #      ******       ******
-    #    **      **   **      **
-    #  **         ** **         **
-    # **            *            **
-    # **                         **
-    # **     X. X.  +  X. X.     **
-    #  **                       **
-    #    **                   **
-    #      **               **
-    #        **           **
-    #          **       **
-    #            **   **
-    #              ***
-    #               *
     f_name = initials(full_name1)
     s_name = initials(full_name2)
 
-    text = """
+    result = """
          ******       ******
        **      **   **      **
      **         ** **         **
     **            *            **
     **                         **
-    """
-
-    rest = """
+    **     #{f_name}  +  #{s_name}     **
      **                       **
        **                   **
          **               **
@@ -54,10 +38,6 @@ defmodule HighSchoolSweetheart do
                  ***
                   *
     """
-
-    main = "**     " <> f_name <> "  +  " <> s_name <> "     **\n"
-
-    text <> main <> rest
 
     # Please implement the pair/2 function
   end
